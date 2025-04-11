@@ -25,26 +25,26 @@ const App: React.FC = () => {
     setUsers(prevUsers => prevUsers.filter((_, i) => i !== index));
   };
 
-  if (loading) return <p className="text-center text-xl mt-10">Ładowanie...</p>;
+  if (loading) return <p className="text-center text-xl mt-10 text-gray-300">Ładowanie...</p>;
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="flex items-center justify-center bg-gray-100">
-        <h1 className="text-3xl font-bold text-blue-600">Witaj!</h1>
+    <div className="min-h-screen bg-gray-900 py-8 px-4">
+      <div className="flex items-center justify-center bg-gray-800 p-4 rounded-lg shadow-lg">
+        <h1 className="text-3xl font-bold text-purple-400">Witaj!</h1>
       </div>
 
-      <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">Lista Użytkowników</h1>
+      <h1 className="text-3xl font-bold text-center mb-8 text-gray-300">Lista Użytkowników</h1>
 
       {/* Siatka kart: flex wrap + wycentrowane */}
       <div className="flex flex-wrap justify-center gap-6">
         {users.map((user, index) => (
           <div
             key={index}
-            className="w-80 p-6 shadow-lg rounded-lg border bg-white hover:shadow-xl transition-shadow duration-300 relative"
+            className="w-80 p-6 shadow-lg rounded-lg border border-gray-700 bg-gray-800 hover:shadow-purple-500/20 hover:border-purple-500 transition-all duration-300 relative"
           >
             <button
               onClick={() => handleDeleteUser(index)}
-              className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full hover:bg-red-600 transition-colors"
+              className="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full hover:bg-red-700 transition-colors"
               aria-label="Usuń użytkownika"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -55,17 +55,17 @@ const App: React.FC = () => {
               <img
                 src={user.picture.large}
                 alt="avatar"
-                className="w-24 h-24 rounded-full border-4 border-blue-100"
+                className="w-24 h-24 rounded-full border-4 border-purple-500/30"
               />
-              <h2 className="text-xl font-bold text-gray-800">
+              <h2 className="text-xl font-bold text-gray-200">
                 {user.name.first} {user.name.last}
               </h2>
-              <div className="text-gray-600 space-y-1">
+              <div className="text-gray-400 space-y-1">
                 <p>
-                  <span className="font-semibold">Email:</span> {user.email}
+                  <span className="font-semibold text-purple-400">Email:</span> {user.email}
                 </p>
                 <p>
-                  <span className="font-semibold">Wiek:</span> {user.dob.age}
+                  <span className="font-semibold text-purple-400">Wiek:</span> {user.dob.age}
                 </p>
               </div>
             </div>
