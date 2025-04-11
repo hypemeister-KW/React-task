@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { User } from "./types/User";
+import { User } from "./types/user";
 
 const App: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -40,7 +40,8 @@ const App: React.FC = () => {
         {users.map((user, index) => (
           <div
             key={index}
-            className="w-80 p-6 shadow-lg rounded-lg border border-gray-700 bg-gray-800 hover:shadow-purple-500/20 hover:border-purple-500 transition-all duration-300 relative"
+            className="w-80 p-6 shadow-lg rounded-lg border border-gray-700 bg-gray-800 
+            hover:shadow-purple-500/20 hover:border-purple-500 transition-all duration-300 relative"
           >
             <button
               onClick={() => handleDeleteUser(index)}
@@ -48,7 +49,8 @@ const App: React.FC = () => {
               aria-label="Usuń użytkownika"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 
+                1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
             </button>
             <div className="flex flex-col items-center text-center space-y-4">
