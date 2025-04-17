@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { User } from "./types/user";
+import Sidebar from "./sidebar/Sidebar";
 
 const App: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -29,7 +31,31 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 py-8 px-4">
-      <div className="flex items-center justify-center bg-gray-800 p-4 rounded-lg shadow-lg">
+      {/* Burger Menu Button */}
+      <button
+        onClick={() => setIsSidebarOpen(true)}
+        className="fixed top-4 left-4 z-30 p-2 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition-colors"
+        aria-label="Otwórz menu"
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+
+      {/* Sidebar */}
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+
+      <div className="flex items-center justify-center  p-4 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold text-purple-400">Witaj!</h1>
       </div>
 
